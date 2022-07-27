@@ -1,0 +1,22 @@
+{
+  "name": "smart_contracts",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Aymen1001",
+  "license": "MIT",
+  "scripts": {
+    "deploy": "npx hardhat run scripts/deploy-myBlog.js",
+    "test": "npx hardhat test"
+  },
+  "dependencies": {
+    "@nomiclabs/hardhat-ethers": "^2.0.6",
+    "chai": "^4.3.6",
+    "ethers": "^5.6.8",
+    "hardhat": "^2.9.9"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-chai-matchers": "^1.0.2",
+    "@nomiclabs/hardhat-etherscan": "^3.1.0",
+    "dotenv": "^16.0.1"
+  }
+}
