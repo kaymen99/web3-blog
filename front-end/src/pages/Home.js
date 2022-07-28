@@ -53,7 +53,7 @@ const Home = () => {
             <section className='home'>
                 <div className='home-text container'>
                     <h2 className='home-title'>The Krypto Blog</h2>
-                    <span className='home-subtitle'>Your source of great content</span>
+                    <span className='home-subtitle'>Your window to the blockchain and crypto world</span>
                 </div>
             </section>
             <section>
