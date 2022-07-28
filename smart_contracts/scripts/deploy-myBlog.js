@@ -35,7 +35,7 @@ async function main() {
     await blog.deployTransaction.wait(6)
 
     // args represent contract constructor arguments
-    const args = [greetingText]
+    const args = [membershipFee, discountRate]
     await verify(blog.address, args)
   }
 }
