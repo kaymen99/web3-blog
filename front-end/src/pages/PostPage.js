@@ -39,7 +39,7 @@ function PostPage() {
         _isMember = await blog.isMember(data.account)
       }
       const _post = (await blog.getAllPosts())[Number(id)]
-      if (_isMember) {
+      if (_isMember && _post[7] !== 0) {
         const _posts = (await axios.get("http://localhost:3001/")).data
         const _postContent = (await axios.get(_posts[String(Number(_post[0]))])).data
         setPost({
