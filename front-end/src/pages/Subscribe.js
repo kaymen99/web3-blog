@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from "react-redux";
+import { useNavigate } from 'react-router-dom';
 import { Form } from "react-bootstrap";
 import { CircularProgress } from "@mui/material";
 import { ethers } from "ethers";
@@ -9,6 +10,7 @@ import { contractAddress, networkDeployedTo } from "../utils/contracts-config";
 import networksMap from "../utils/networksMap.json";
 
 function Subscribe() {
+    const navigate = useNavigate()
     const data = useSelector((state) => state.blockchain.value)
 
     const [monthlyFee, setMonthlyFee] = useState(0)
@@ -50,7 +52,7 @@ function Subscribe() {
                 )
                 await become_member_tx.wait();
 
-                window.location.reload()
+                navigate("/")
                 setLoading(false)
             } catch (error) {
                 window.alert("An error has occured")
@@ -68,7 +70,7 @@ function Subscribe() {
 
     return (
 
-        <div style={{ marginTop: "40vh", paddingBottom: "40px" }}>
+        <div style={{ marginTop: "10vh", paddingBottom: "40px" }}>
             <div className="mainheading" style={{ marginBottom: "20px" }} >
                 <h1 className="sitetitle">Become A Member</h1>
             </div>
