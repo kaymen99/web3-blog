@@ -92,7 +92,7 @@ const CreatePost = () => {
 
                     setImage(null)
                     setLoading(false)
-                    navigate("/dashboard")
+                    navigate("/")
                 }
                 catch (err) {
                     window.alert("An error has occured")
