@@ -158,7 +158,7 @@ If you want to test the functionnalities of the Blog contract you can do it by r
    
 ### Back-end
 
-To run the Dapp completly you must also start the backend server responsable for the only members articles URLs handling, first as previously install the required dependencies by running :
+To run the Dapp completly you must also start the backend server responsable for the only members articles URLs handling, first as previously install the required dependancies by running :
    ```sh
    cd backend
    yarn
