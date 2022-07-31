@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux"
 import { ethers } from "ethers";
-import { Button, Form, Modal } from "react-bootstrap";
+import { Form } from "react-bootstrap";
 import { CircularProgress } from "@mui/material";
 
 import Blog from "../artifacts/MyBlog.sol/MyBlog.json";
@@ -165,12 +165,16 @@ const AuthorDashboard = () => {
                     </div>
                     <br />
 
-                    <div className="container" style={{ paddingTop: "20px", textAlign: "center" }}>
-                        <a className='login'
-                            href={"/create-post"}
-                            role="button">
-                            Add New Post
-                        </a>
+                    <div className="container" style={{ width: "600px", textAlign: "center", display: "flex", paddingTop: "20px" }}>
+                        <label>Create a new post</label>
+                        <div style={{ paddingLeft: "10px" }}>
+                            <a className='login'
+                                href={"/create-post"}
+                                role="button">
+                                Add New Post
+                            </a>
+                        </div>
+
                     </div>
                 </div>
             </>
