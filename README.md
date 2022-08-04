@@ -153,7 +153,7 @@ This will deploy the contract to the Ganache network and create a config.js file
 
 If you want to test the functionnalities of the Blog contract you can do it by running:
    ```sh
-   npx hardhat test
+   yarn test
    ```
    
 ### Back-end
