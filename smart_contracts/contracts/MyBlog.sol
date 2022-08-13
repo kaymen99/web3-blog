@@ -38,9 +38,12 @@ contract MyBlog {
     mapping(address => Member) blogMembers;
     Post[] public posts;
 
-    error AlreadyMember();
-    error InsufficientAmount();
-    error InvalidDiscountRate();
+    //--------------------------------------------------------------------
+    // CUSTOM ERRORS
+
+    error Blog__AlreadyMember();
+    error Blog__InsufficientAmount();
+    error Blog__InvalidDiscountRate();
 
     //--------------------------------------------------------------------
     // EVENTS
@@ -77,9 +80,7 @@ contract MyBlog {
     // CONSTRUCTOR
 
     constructor(uint256 _fee, uint256 _discountRate) {
-        if (_discountRate > 90) {
-            revert InvalidDiscountRate();
-        }
+        if (_discountRate > 90) revert Blog__InvalidDiscountRate();
         owner = msg.sender;
         monthlyMembershipFee = _fee;
         yearlyDiscountRate = _discountRate;
@@ -89,19 +90,15 @@ contract MyBlog {
     // FUNCTIONS
 
     function becomeMember(SubscriptionType _memberType) public payable {
-        if (isMember(msg.sender)) revert AlreadyMember();
+        if (isMember(msg.sender)) revert Blog__AlreadyMember();
         if (_memberType == SubscriptionType.MONTHLY) {
-            if (msg.value < monthlyMembershipFee) {
-                revert InsufficientAmount();
-            }
+            if (msg.value < monthlyMembershipFee) revert Blog__InsufficientAmount();
             uint256 period = block.timestamp + 30 days;
             blogMembers[msg.sender] = Member(period, SubscriptionType.MONTHLY);
         } else if (_memberType == SubscriptionType.YEARLY) {
             uint256 fee = (monthlyMembershipFee * 12 * yearlyDiscountRate) /
                 100;
-            if (msg.value < fee) {
-                revert InsufficientAmount();
-            }
+            if (msg.value < fee) revert Blog__InsufficientAmount();
             uint256 period = block.timestamp + 365 days;
             blogMembers[msg.sender] = Member(period, SubscriptionType.YEARLY);
         }
@@ -208,9 +205,8 @@ contract MyBlog {
         payable
         onlyOwner
     {
-        if (_newRate > 90) {
-            revert InvalidDiscountRate();
-        }
+        if (_newRate > 90) revert Blog__InvalidDiscountRate();
+
         yearlyDiscountRate = _newRate;
     }
 }
