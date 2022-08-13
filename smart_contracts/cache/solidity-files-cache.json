@@ -1,0 +1,40 @@
+{
+  "_format": "hh-sol-cache-2",
+  "files": {
+    "/Users/k.aymen/smart_contracts/my_web3_blog/smart_contracts/contracts/MyBlog.sol": {
+      "lastModificationDate": 1660397508198,
+      "contentHash": "d3f6b5e7a6c57968b806412d077ea768",
+      "sourceName": "contracts/MyBlog.sol",
+      "solcConfig": {
+        "version": "0.8.7",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.7"
+      ],
+      "artifacts": [
+        "MyBlog"
+      ]
+    }
+  }
+}
