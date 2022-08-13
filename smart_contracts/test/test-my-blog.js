@@ -1,5 +1,5 @@
 const { expect } = require("chai");
-const { ethers, waffle } = require("hardhat");
+const { ethers } = require("hardhat");
 const { getAmountInWei, getAmountFromWei } = require('../utils/helper-scripts');
 
 describe("MyBlog.sol", () => {
@@ -125,21 +125,21 @@ describe("MyBlog.sol", () => {
         memberType["MONTHLY"],
         { value: membershipFee }
       )
-      expect(
-        await contract.connect(user1).becomeMember(
+      await expect(
+        contract.connect(user1).becomeMember(
           memberType["MONTHLY"],
           { value: membershipFee }
         )
-      ).to.be.revertedWithCustomError(contract, "AlreadyMember()")
+      ).to.be.revertedWithCustomError(contract, "Blog__AlreadyMember")
     });
     it("should revert with insufficient amount when not paying exact fee for becoming member", async () => {
       const wrongFee = getAmountInWei(0.0001)
-      expect(
-        await contract.connect(user1).becomeMember(
+      await expect(
+        contract.connect(user1).becomeMember(
           memberType["MONTHLY"],
           { value: wrongFee }
         )
-      ).to.be.revertedWithCustomError(contract, "InsufficientAmount()")
+      ).to.be.revertedWithCustomError(contract, "Blog__InsufficientAmount")
     });
   });
 
@@ -162,9 +162,9 @@ describe("MyBlog.sol", () => {
 
     it("it should refuse value of yearly membership discount rate greater than 90% ", async () => {
       const newDiscountRate = 95
-      expect(
-        await contract.connect(owner).setYearlyDiscountRate(newDiscountRate)
-      ).to.be.revertedWithCustomError(contract, "InvalidDiscountRate")
+      await expect(
+        contract.connect(owner).setYearlyDiscountRate(newDiscountRate)
+      ).to.be.revertedWithCustomError(contract, "Blog__InvalidDiscountRate")
     });
 
     it("it should transfer contract balance to owner", async () => {
@@ -187,7 +187,4 @@ describe("MyBlog.sol", () => {
       )
     });
   })
-
 });
-
-
