@@ -136,7 +136,6 @@ Next you need to setup the environement variables in the .env file, this are use
 
 After going through all the configuration step, you'll need to deploy the smart contract to the ganache network by running: 
    ```sh
-   cd hardhat
    yarn deploy --network ganache
    ```
 This will deploy the contract to the Ganache network and create a config.js file and an artifacts folder and transfer them to the src folder to enable the interaction between the contract and the UI.
