@@ -177,6 +177,12 @@ To start the user interface just run the following commands :
    yarn
    yarn start
    ```
+
+As infura recently removed its free IPFS storage gateway i used `web3.storage` api for storing data into IPFS, this api is as simple as infura it requires the creation of a free account and a new api token which you can do [here](https://web3.storage), when you finish add your api token into the `front-end/src/utils/StoreContent.js` file:
+   ```js
+    const web3storage_key = "YOUR-WEB3.STORAGE-API-TOKEN";
+   ```
+   
 If you did everything right, you can now connect to Metamask and access your Dashboard, there you can start blogging.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
