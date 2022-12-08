@@ -1,5 +1,5 @@
 {
-  "name": "react-hardhat-boilerplate",
+  "name": "web3-blog-front-end",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -27,6 +27,7 @@
     "redux-persist": "^6.0.0",
     "styled-components": "^5.3.5",
     "web-vitals": "^2.1.4",
+    "web3.storage": "^4.4.0",
     "web3modal": "^1.9.7"
   },
   "scripts": {
