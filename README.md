@@ -4,7 +4,7 @@
 
 # Web3-Blog
 
-A web3.0 personal blog supporting public and only members articles built on top of the Ethereum blockchain 
+A web3.0 personal blog supporting public articles available for everyone and only members posts accessible only for the blog members (who paid a monthly/yearly membership), its built completly on top of the Ethereum blockchain. 
 
 <p align="center">
   <img alt="Dark" src="https://user-images.githubusercontent.com/83681204/182006492-1d78e267-c3a4-4f74-89ff-c31562131647.png" width="100%">
